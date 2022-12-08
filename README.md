@@ -36,6 +36,10 @@ Both services can be pretty cheap under the usual usage conditions.
 
 <img width="1409" alt="image" src="https://user-images.githubusercontent.com/48658585/206364375-02ce9d9a-26aa-4458-a2b6-5f5858ef2ffe.png">
 
+# Reference
+
+- [AWS's official announcement of ECS Connect](https://aws.amazon.com/blogs/aws/new-amazon-ecs-service-connect-enabling-easy-communication-between-microservices/)
+- [Creating Service Connect from CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/create-service-connect.html)
 
 # Note
 

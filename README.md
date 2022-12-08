@@ -16,17 +16,21 @@ Both services can be pretty cheap under the usual usage conditions.
 
 - Configuration: ECS service connect is configured using HTTP namespace and service discovery is configured using private DNS namespace.
 
-### Service connect
-
-<img width="585" alt="image" src="https://user-images.githubusercontent.com/48658585/206357337-07348d15-2132-4e89-ad01-c5c131c5dbcb.png">
-
-<img width="389" alt="image" src="https://user-images.githubusercontent.com/48658585/206357208-e42077ce-9b63-4699-b850-487a468927e5.png">
-
 ### Service discovery
+
+<img width="1145" alt="image" src="https://user-images.githubusercontent.com/48658585/206368446-f6d7178b-e6e0-440e-9ad9-85c2e5b3c71d.png">
 
 <img width="589" alt="image" src="https://user-images.githubusercontent.com/48658585/206357287-a2bfe4c1-434b-4cee-9805-3b417c54c37d.png">
 
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/48658585/206357187-af260e70-4b20-4f9f-86e0-512cf21da2bb.png">
+
+### Service connect
+
+<img width="1419" alt="image" src="https://user-images.githubusercontent.com/48658585/206368399-838f6094-6282-49e0-9af2-98def4d6d9a4.png">
+
+<img width="585" alt="image" src="https://user-images.githubusercontent.com/48658585/206357337-07348d15-2132-4e89-ad01-c5c131c5dbcb.png">
+
+<img width="389" alt="image" src="https://user-images.githubusercontent.com/48658585/206357208-e42077ce-9b63-4699-b850-487a468927e5.png">
 
 ### Service connect incoming traffic metrics
 

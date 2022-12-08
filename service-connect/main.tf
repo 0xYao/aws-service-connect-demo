@@ -68,7 +68,7 @@ resource "aws_ecs_cluster" "webserver_ecs_cluster" {
 }
 
 resource "aws_iam_role" "ecs_task_role" {
-  name = "ecs-task-role"
+  name = "ecs-service-connect-task-role"
 
   assume_role_policy = <<EOF
 {
@@ -89,7 +89,7 @@ EOF
 }
 
 resource "aws_iam_policy" "ecs_task_policy" {
-  name = "ecs-task-policy"
+  name = "ecs-service-connect-task-policy"
   policy = jsonencode({
     "Version" : "2012-10-17",
     "Statement" : [
@@ -108,7 +108,7 @@ resource "aws_iam_policy" "ecs_task_policy" {
 }
 
 resource "aws_iam_role" "ecs_task_execution_role" {
-  name = "ecs-task-execution-role"
+  name = "ecs-service-connect-task-execution-role"
 
   assume_role_policy = <<EOF
 {
@@ -255,42 +255,43 @@ resource "aws_ecs_service" "webserver" {
   }
 }
 
-resource "aws_cloudwatch_log_group" "webserver_service_connect_log_2" {
-  name = "/ecs/webserver-nginx-2"
-}
+# I am getting this error when I uncomment these services below, Error: failed creating ECS Task Definition (webserver): ClientException: Too many concurrent attempts to create a new revision of the specified family.
+# resource "aws_cloudwatch_log_group" "webserver_service_connect_log_2" {
+#   name = "/ecs/webserver-nginx-2"
+# }
 
-resource "aws_ecs_service" "webserver_2" {
-  name            = "webserver-service"
-  cluster         = aws_ecs_cluster.webserver_ecs_cluster.id
-  task_definition = aws_ecs_task_definition.webserver_task_2.arn
-  desired_count   = 1
+# resource "aws_ecs_service" "webserver_2" {
+#   name            = "webserver-service-2"
+#   cluster         = aws_ecs_cluster.webserver_ecs_cluster.id
+#   task_definition = aws_ecs_task_definition.webserver_task_2.arn
+#   desired_count   = 1
 
-  launch_type            = "FARGATE"
-  enable_execute_command = true
+#   launch_type            = "FARGATE"
+#   enable_execute_command = true
 
-  service_connect_configuration {
-    enabled = true
-    service {
-      # Match the name of the portMappings in the container definitions
-      port_name = "nginx-port"
-      client_alias {
-        port     = 80
-        dns_name = "nginx"
-      }
-    }
-    log_configuration {
-      log_driver = "awslogs"
-      options = {
-        "awslogs-group"         = "/ecs/webserver-nginx-2"
-        "awslogs-region"        = data.aws_region.current.name
-        "awslogs-stream-prefix" = "webserver-nginx"
-      }
-    }
-  }
+#   service_connect_configuration {
+#     enabled = true
+#     service {
+#       # Match the name of the portMappings in the container definitions
+#       port_name = "nginx-port"
+#       client_alias {
+#         port     = 80
+#         dns_name = "nginx"
+#       }
+#     }
+#     log_configuration {
+#       log_driver = "awslogs"
+#       options = {
+#         "awslogs-group"         = "/ecs/webserver-nginx-2"
+#         "awslogs-region"        = data.aws_region.current.name
+#         "awslogs-stream-prefix" = "webserver-nginx"
+#       }
+#     }
+#   }
 
-  network_configuration {
-    assign_public_ip = true
-    subnets          = data.aws_subnets.all.ids
-    security_groups  = [module.security_group.security_group_id]
-  }
-}
+#   network_configuration {
+#     assign_public_ip = true
+#     subnets          = data.aws_subnets.all.ids
+#     security_groups  = [module.security_group.security_group_id]
+#   }
+# }

@@ -28,6 +28,13 @@ Both services can be pretty cheap under the usual usage conditions.
 
 <img width="420" alt="image" src="https://user-images.githubusercontent.com/48658585/206357187-af260e70-4b20-4f9f-86e0-512cf21da2bb.png">
 
+### Service connect incoming traffic metrics
+
+<img width="1409" alt="image" src="https://user-images.githubusercontent.com/48658585/206364262-6407b1aa-6955-47ba-b536-484d800f4310.png">
+
+### Service connect outgoing traffic metrics
+
+<img width="1409" alt="image" src="https://user-images.githubusercontent.com/48658585/206364375-02ce9d9a-26aa-4458-a2b6-5f5858ef2ffe.png">
 
 
 # Note

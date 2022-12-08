@@ -39,4 +39,4 @@ Both services can be pretty cheap under the usual usage conditions.
 
 # Note
 
-- service-discovery is deployed to us-west-2 and the service-connect example is deployed to us-east-1 but it's not functional.
+- service-discovery is deployed to us-west-2 and the service-connect example is deployed to us-east-1 but currently it's not functional (ECS tasks have been failing to start).
